@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Release 1</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="head">
+        <div class="head-text"><h1>Pre-Release 1 Computer Science IGCSE</h1><h4>by Saleh Furqan</h4></div>
+    </div>
+    <div class="main">
+        <div class="form-cont">
+            <form data-form>
+                <div class="input-cont">
+                    <h2>USER NAME</h2>
+                    <label for="name">
+                        <input type="text" class="name inputs" id="name" required>
+                    </label>
+                </div>
+
+                <div class="input-cont">
+                    <h2>USER AGE</h2>
+                    <label for="age">
+                        <input type="number" class="age inputs" id="age" required>
+                    </label>
+                </div>
+
+                <div class="input-cont yesNo">
+                    <h2>USER GENDER</h2>
+                    <label for="genderMale">
+                        <input class="gender inputs" name="gender" id="male" value="male" type="radio">
+                        MALE
+                    </label>
+                    <label for="genderFemale">
+                        <input class="gender inputs" name="gender" id="female" value="female" type="radio">
+                        FEMALE
+                    </label>
+                </div>
+
+                <div class="input-cont yesNo">
+                    <h2>IS USER A TEAM MEMBER?</h2>
+                    <label for="isTeamMemberYes">
+                        <input class="isTeamMember inputs" name="isTeamMember" id="isTeamMember" value="teamMember" type="radio">
+                        YES
+                    </label>
+                    <label for="isTeamMemberNo">
+                        <input class="isTeamMember inputs" name="isTeamMember" id="notTeamMember" value="notTeamMember" type="radio">
+                        NO
+                    </label>
+                </div>
+
+                <div class="input-cont yesNo">
+                    <h2>DID USER PAY?</h2>
+                    <label for="didUserPayYes">
+                        <input type="radio" class="didUserPay inputs" name="didUserPay" id="paid" value="paid">
+                        YES
+                    </label>
+                    <label for="didUserPayNo">
+                        <input type="radio" class="didUserPay inputs" name="didUserPay" id="notPaid" value="notPaid">
+                        NO
+                    </label>
+                </div>
+                <button class="submit" id="submit">ADD USER</button>
+            </form>
+        </div>
+
+        <div class="table-cont">
+            <table>
+                <thead>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>GENDER</th>
+                    <th>TYPE OF MEMB</th>
+                    <th>TEAM MEMB?</th>
+                    <th>FEES</th>
+                    <th>PAID?</th>
+                    <th>Delete User</th>
+                </thead>
+                <tbody class="list" id="list">
+                    <tr>
+                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
