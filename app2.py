@@ -25,7 +25,7 @@ print(
 )
 
 numberOfUsers = int(input("Enter number of users:  "))
-while numberOfUsers < 20:
+while numberOfUsers < 4:
     print("At least 20 members details required ")
     numberOfUsers = int(input("Enter number of users:  "))
 
@@ -85,67 +85,74 @@ for i in range(numberOfUsers):
     print("================NEW USER===============")
 
 
-jMemb = 0
-aMemb = 0
-sMemb = 0
-gMemb = 0
-jMembNotPaid = 0
-aMembNotPaid = 0
-sMembNotPaid = 0
-gMembNotPaid = 0
-totalCostExpected = 0
-totalCostPaid = 0
+task2 = input("Start task 2?  ")
+if task2 == "yes":
+    jMemb = 0
+    aMemb = 0
+    sMemb = 0
+    gMemb = 0
+    jMembNotPaid = 0
+    aMembNotPaid = 0
+    sMembNotPaid = 0
+    gMembNotPaid = 0
+    totalCostExpected = 0
+    totalCostPaid = 0
 
-for i in range(numberOfUsers):
-    user = [
-        index[i], names[i], ages[i], genders[i], typeMemberships[i],
-        teamMembers[i], annualFees[i], feesPaid[i]
-    ]
-    if user[4] == "junior":
-        jMemb += 1
-        totalCostExpected += user[6]
-        if user[7] == "not yet paid":
-            jMembNotPaid += 1
+    for i in range(numberOfUsers):
+        user = [
+            index[i], names[i], ages[i], genders[i], typeMemberships[i],
+            teamMembers[i], annualFees[i], feesPaid[i]
+        ]
+        if user[4] == "junior":
+            jMemb += 1
+            totalCostExpected += user[6]
+            if user[7] == "not yet paid":
+                jMembNotPaid += 1
+            else:
+                totalCostPaid += user[6]
+        elif user[4] == "adult":
+            aMemb += 1
+            totalCostExpected += user[6]
+            if user[7] == "not yet paid":
+                aMembNotPaid += 1
+            else:
+                totalCostPaid += user[6]
+        elif user[4] == "senior":
+            sMemb += 1
+            totalCostExpected += user[6]
+            if user[7] == "not yet paid":
+                sMembNotPaid += 1
+            else:
+                totalCostPaid += user[6]
         else:
-            totalCostPaid += user[6]
-    elif user[4] == "adult":
-        aMemb += 1
-        totalCostExpected += user[6]
-        if user[7] == "not yet paid":
-            aMembNotPaid += 1
-        else:
-            totalCostPaid += user[6]
-    elif user[4] == "senior":
-        sMemb += 1
-        totalCostExpected += user[6]
-        if user[7] == "not yet paid":
-            sMembNotPaid += 1
-        else:
-            totalCostPaid += user[6]
-    else:
-        gMemb += 1
-        if user[7] == "not yet paid":
-            gMembNotPaid += 1
+            gMemb += 1
+            if user[7] == "not yet paid":
+                gMembNotPaid += 1
 
     print(user)
 
-print("---------------------------")
-if jMemb != 0:
-    jNotPaidPercent = (jMembNotPaid / jMemb) * 100
-    print("Percentage of junior members that haven't paid: ", jNotPaidPercent, "%")
-if aMemb != 0:
-    aNotPaidPercent = (aMembNotPaid / aMemb) * 100
-    print("Percentage of adult members that haven't paid: ", aNotPaidPercent, "%")
-if sMemb != 0:
-    sNotPaidPercent = (sMembNotPaid / sMemb) * 100
-    print("Percentage of senior members that haven't paid: ", sNotPaidPercent, "%")
-if gMemb != 0:
-    gNotPaidPercent = (gMembNotPaid / gMemb) * 100
-    print("Percentage of golden members that haven't paid: ", gNotPaidPercent, "%")
-print("---------------------------\n---------------------------")
-print("annual fee expected: ", totalCostExpected)
-print("annual fee paid: ", totalCostPaid)
-print("---------------------------")
+    print("---------------------------")
+
+    if jMemb != 0:
+        jNotPaidPercent = (jMembNotPaid / jMemb) * 100
+        print("Percentage of junior members that haven't paid: ",
+              jNotPaidPercent, "%")
+    if aMemb != 0:
+        aNotPaidPercent = (aMembNotPaid / aMemb) * 100
+        print("Percentage of adult members that haven't paid: ",
+              aNotPaidPercent, "%")
+    if sMemb != 0:
+        sNotPaidPercent = (sMembNotPaid / sMemb) * 100
+        print("Percentage of senior members that haven't paid: ",
+              sNotPaidPercent, "%")
+    if gMemb != 0:
+        gNotPaidPercent = (gMembNotPaid / gMemb) * 100
+        print("Percentage of golden members that haven't paid: ",
+              gNotPaidPercent, "%")
+    print("---------------------------\n---------------------------")
+    print("annual fee expected: ", totalCostExpected)
+    print("annual fee paid: ", totalCostPaid)
+    print("---------------------------")
 
 membNotPaid = []
 # task3 = validateYesNo("Start task 3?  ")
