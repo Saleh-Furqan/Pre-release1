@@ -8,7 +8,7 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	background-color: aquamarine;
+	background-color: gray;
 }
 .head {
 	display: flex;
@@ -16,8 +16,8 @@ body {
 	justify-content: flex-start;
 	height: 20%;
 	width: 100%;
-	background-color: azure;
-	color: gray;
+	background-color: steelblue;
+	color: black;
 	font-size: 25px;
 }
 .head .head-text {
@@ -32,12 +32,12 @@ body {
 }
 .main .form-cont {
 	height: 70%;
-	background-color: blanchedalmond;
+	background-color: beige;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 20px;
+	padding: 20px 30px;
 	border: 3px solid black;
 	border-radius: 10px;
 }

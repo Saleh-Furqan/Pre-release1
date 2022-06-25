@@ -20,12 +20,14 @@ def validateYesNo(statement):
 print(
     "=========================================================\n----------- Annual Audit of Membership Details ----------\n========================================================="
 )
-
 print(
     "Please Fill In All The User Details As Asked By The Program. Make Sure All Information Is Accurate."
 )
 
 numberOfUsers = int(input("Enter number of users:  "))
+while numberOfUsers < 20:
+    print("At least 20 members details required ")
+    numberOfUsers = int(input("Enter number of users:  "))
 
 for i in range(numberOfUsers):
 
@@ -58,14 +60,14 @@ for i in range(numberOfUsers):
         print('Enter a valid gender (male/female)')
         gender = input('Enter Gender: ')
 
-    isteamMember = validateYesNo('Is user a Team Member? (yes/no)  ')
+    isteamMember = input('Is user a Team Member? (yes/no)  ')
     if isteamMember == "yes":
         teamMember = "team member"
-        annualFee = annualFee * 0.9
+        annualFee *= 0.9
     else:
-        teamMember = "not team member"
+        teamMember == "not team member"
 
-    isfeePaid = validateYesNo('Did user pay already? (yes/no)  ')
+    isfeePaid = input('Did user pay already? (yes/no)  ')
     if isfeePaid == "yes":
         feePaid = "paid"
     else:
@@ -82,6 +84,7 @@ for i in range(numberOfUsers):
 
     print("================NEW USER===============")
 
+
 jMemb = 0
 aMemb = 0
 sMemb = 0
@@ -90,6 +93,8 @@ jMembNotPaid = 0
 aMembNotPaid = 0
 sMembNotPaid = 0
 gMembNotPaid = 0
+totalCostExpected = 0
+totalCostPaid = 0
 
 for i in range(numberOfUsers):
     user = [
@@ -98,16 +103,25 @@ for i in range(numberOfUsers):
     ]
     if user[4] == "junior":
         jMemb += 1
+        totalCostExpected += user[6]
         if user[7] == "not yet paid":
             jMembNotPaid += 1
+        else:
+            totalCostPaid += user[6]
     elif user[4] == "adult":
         aMemb += 1
+        totalCostExpected += user[6]
         if user[7] == "not yet paid":
             aMembNotPaid += 1
+        else:
+            totalCostPaid += user[6]
     elif user[4] == "senior":
         sMemb += 1
+        totalCostExpected += user[6]
         if user[7] == "not yet paid":
             sMembNotPaid += 1
+        else:
+            totalCostPaid += user[6]
     else:
         gMemb += 1
         if user[7] == "not yet paid":
@@ -118,33 +132,24 @@ for i in range(numberOfUsers):
 print("---------------------------")
 if jMemb != 0:
     jNotPaidPercent = (jMembNotPaid / jMemb) * 100
-    print("Percentage of junior members that haven't paid: ", jNotPaidPercent,
-          "%")
+    print("Percentage of junior members that haven't paid: ", jNotPaidPercent, "%")
 if aMemb != 0:
     aNotPaidPercent = (aMembNotPaid / aMemb) * 100
-    print("Percentage of adult members that haven't paid: ", aNotPaidPercent,
-          "%")
+    print("Percentage of adult members that haven't paid: ", aNotPaidPercent, "%")
 if sMemb != 0:
     sNotPaidPercent = (sMembNotPaid / sMemb) * 100
-    print("Percentage of senior members that haven't paid: ", sNotPaidPercent,
-          "%")
+    print("Percentage of senior members that haven't paid: ", sNotPaidPercent, "%")
 if gMemb != 0:
     gNotPaidPercent = (gMembNotPaid / gMemb) * 100
-    print("Percentage of golden members that haven't paid: ", gNotPaidPercent,
-          "%")
-print("---------------------------")
-
-annualFeeExpected = (jMemb * 10) + (aMemb * 20) + (sMemb * 15)
-annualFeePaid = ((jMemb - jMembNotPaid) * 10) + (
-    (aMemb - aMembNotPaid) * 20) + ((sMemb - sMembNotPaid) * 15)
-#displaying expected and received payments
-print("---------------------------")
-print("annual fee expected: ", annualFeeExpected)
-print("annual fee paid: ", annualFeePaid)
+    print("Percentage of golden members that haven't paid: ", gNotPaidPercent, "%")
+print("---------------------------\n---------------------------")
+print("annual fee expected: ", totalCostExpected)
+print("annual fee paid: ", totalCostPaid)
 print("---------------------------")
 
 membNotPaid = []
-task3 = validateYesNo("Start task 3?  ")
+# task3 = validateYesNo("Start task 3?  ")
+task3 = input("Start task 3?  ")
 if task3 == "yes":
     index2 = []
     names2 = []
@@ -177,11 +182,11 @@ if task3 == "yes":
                 typeMemberships[i] = "golden"
                 annualFees[i] = 0
 
-            nowTeamMemb = validateYesNo("Is {} a team member? ".format(
-                names[i]))
+            nowTeamMemb = input("Is {} a team member? ".format(names[i]))
             print("---------------------------")
             if nowTeamMemb == "yes":
                 teamMembers[i] = "team member"
+                annualFees[i] *= 0.9
                 if typeMemberships[i] == "junior":
                     jMemb.append(names[i])
                 elif typeMemberships[i] == "adult":
@@ -190,7 +195,6 @@ if task3 == "yes":
                     sMemb.append(names[i])
                 else:
                     gMemb.append(names[i])
-
             else:
                 teamMembers[i] = "not team member"
 
@@ -208,17 +212,13 @@ if task3 == "yes":
 
     print("---------------------------")
     print("Members still not paid: ", membNotPaid)
-    print("---------------------------")
-    print("---------------------------")
+    print("---------------------------\n---------------------------")
     print("Juniors: ", jMemb)
     print("Adults: ", aMemb)
     print("Seniors: ", sMemb)
     print("Golden: ", gMemb)
 
     for i in range(len(names2)):
-        feesPaid2[i] = "not yet paid"
-        user = [
-            index2[i], names2[i], ages2[i], genders2[i], typeMemberships2[i],
-            teamMembers2[i], annualFees2[i], feesPaid2[i]
-        ]
+        user = [index2[i], names2[i], ages2[i], genders2[i],
+                typeMemberships2[i], teamMembers2[i], annualFees2[i], feesPaid2[i]]
         print(user)
